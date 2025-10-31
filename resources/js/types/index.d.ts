@@ -1,18 +1,18 @@
 export interface AppPageProps {
-  auth?: {
-    user?: {
-      id: number;
-      name: string;
-      email?: string;
+    auth?: {
+        user?: {
+            id: number;
+            name: string;
+            email?: string;
+        } | null;
+    };
+    flash?: {
+        message?: string;
     } | null;
-  };
-  flash?: {
-    message?: string;
-  } | null;
-  errors?: Record<string, string[]>;
+    errors?: Record<string, string[]>;
 }
 
-export {};
+export { };
 export interface User {
     id: number;
     name: string;
