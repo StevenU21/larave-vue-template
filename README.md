@@ -1,60 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Vue Template
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Plantilla base para iniciar nuevos proyectos con Laravel + Inertia + Vue. Está pensada para acelerar el arranque de proyectos modernos con TypeScript, Vite, Tailwind CSS y las configuraciones comunes (login, Breeze, modo claro/oscuro y estructura de carpetas). Incluye además soporte para empaquetado con NativePHP en caso de querer crear builds para Windows, Linux o macOS.
 
-## About Laravel
+## Características principales
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel 12.x (configuración lista para comenzar)
+- Inertia.js + Vue.js (con TypeScript)
+- Tailwind CSS 3.x
+- Vite como bundler
+- Axios para llamadas HTTP
+- Laravel Breeze (autenticación básica, login/registro ya listos)
+- Modo oscuro / claro integrado
+- Estructura base de carpetas y ejemplos de componentes/ páginas
+- Carpeta `nativephp/` con configuración para empaquetado nativo (Electron / NativePHP)
+- Ejemplos y utilidades para desarrollo rápido
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP compatible con Laravel 12.x
+- Composer
+- Node.js (v16+ recomendado) y npm o yarn
+- Git (opcional)
 
-## Learning Laravel
+## Estructura relevante del repo
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- `app/` - código backend de Laravel
+- `resources/js/` - código frontend (Inertia + Vue + TypeScript)
+- `resources/css/` - estilos Tailwind
+- `nativephp/` - configuración para empaquetado nativo (Electron / NativePHP)
+- `routes/` - rutas de la aplicación
+- `public/` - archivos públicos y assets compilados
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalación y puesta en marcha (Windows - PowerShell)
 
-## Laravel Sponsors
+1. Clona el repositorio y entra en la carpeta del proyecto:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```powershell
+git clone <repo-url> laravel-vue-template
+cd laravel-vue-template
+```
 
-### Premium Partners
+2. Instala dependencias PHP con Composer:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```powershell
+composer install
+```
 
-## Contributing
+3. Copia el archivo de entorno y genera la clave de aplicación:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```powershell
+Copy-Item -Path .env.example -Destination .env
+php artisan key:generate
+```
 
-## Code of Conduct
+4. Instala dependencias de Node y compila para desarrollo:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```powershell
+npm install
+npm run dev
+```
 
-## Security Vulnerabilities
+5. Ejecuta el servidor de desarrollo de Laravel:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```powershell
+php artisan serve
+```
 
-## License
+Abre tu navegador en http://127.0.0.1:8000 (o la dirección que indique `php artisan serve`).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# larave-vue-template" 
+## Scripts útiles (package.json)
+
+- `npm run dev` — compila en modo desarrollo y levanta watcher de Vite
+- `npm run build` — build para producción
+- `npm run lint` — lint para JavaScript/TypeScript (si está configurado)
+
+## Autenticación y Breeze
+
+La plantilla incluye Laravel Breeze con vistas y rutas iniciales para registro, login, recuperación de contraseña y verificación de email. También hay ejemplos de integración con Inertia + Vue para las páginas de autenticación.
+
+## Modo oscuro / claro
+
+La base incluye utilidades para alternar entre tema claro y oscuro (Tailwind config + ejemplo de toggle en frontend). Revisa `resources/js` y las clases Tailwind en los componentes para ver la integración.
+
+## Empaquetado nativo (NativePHP / Electron)
+
+Si en el futuro quieres empaquetar la aplicación como aplicación de escritorio, la carpeta `nativephp/` contiene la configuración base (Electron, Vite + plugin y scripts). Pasos generales:
+
+1. Revisa `nativephp/` y personaliza los archivos de `electron` y `electron.vite.config.mjs`.
+2. Instala dependencias dentro de `nativephp/` y ejecuta los scripts de build allí.
+
+Nota: el empaquetado nativo puede necesitar herramientas adicionales (electron-builder, firmas, etc.). Ver la documentación en `nativephp/` y la web de NativePHP/Electron.
+
+## Tests
+
+Se incluyen pruebas base con Pest / PHPUnit en `tests/`.
+
+## Notas para desarrolladores
+
+- Mantén actualizadas las versiones de Tailwind y Vite para aprovechar mejoras de rendimiento.
+- Si añades paquetes npm, registra cualquier side-effect o cambio en `vite.config.js`.
+
+## Licencia
+
+Esta plantilla se distribuye bajo la licencia MIT — ajústala según tus necesidades.
+
+---
+
+
