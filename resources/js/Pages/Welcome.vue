@@ -90,7 +90,8 @@ defineProps({
                     </div>
                     <div class="text-sm text-gray-500 dark:text-gray-400 text-center sm:text-right">Versión Laravel:
                         <span class="font-bold text-blue-600 dark:text-blue-400">{{ laravelVersion }}</span> · PHP:
-                        <span class="font-bold text-green-600 dark:text-green-400">{{ phpVersion }}</span></div>
+                        <span class="font-bold text-green-600 dark:text-green-400">{{ phpVersion }}</span>
+                    </div>
                 </div>
             </div>
         </div>
