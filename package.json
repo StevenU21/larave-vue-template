@@ -4,6 +4,7 @@
     "type": "module",
     "scripts": {
         "build": "vue-tsc && vite build",
+        "release": "echo \"Running release tasks\" && npm run build",
         "dev": "vite"
     },
     "devDependencies": {
