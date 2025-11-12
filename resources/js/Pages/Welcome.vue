@@ -7,7 +7,6 @@ defineProps({
 });
 </script>
 
-
 <template>
 
     <Head title="Bienvenido a la plantilla" />

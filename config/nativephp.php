@@ -7,7 +7,7 @@ return [
      * Increment this value every time you release a new version of your app.
      */
     'version' => env('NATIVEPHP_APP_VERSION', '2.0.0'),
-    
+
     /**
      * The ID of your application. This should be a unique identifier
      * usually in the form of a reverse domain name.
